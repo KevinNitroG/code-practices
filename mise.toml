@@ -1,0 +1,12 @@
+#:schema https://raw.githubusercontent.com/jdx/mise/refs/heads/main/schema/mise.json
+
+[env]
+GOCACHE = "$PWD/cache/go-build/"
+
+[tools]
+python = "latest"
+uv = "latest"
+node = "latest"
+
+[settings]
+env_shell_expand = true
