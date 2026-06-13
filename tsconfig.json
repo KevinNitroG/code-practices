@@ -1,0 +1,9 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "module": "esnext"
+  },
+  "include": ["leetcode/**/*.ts", "leetcode/**/*.js"]
+}
