@@ -1,42 +1,21 @@
-const indexedReversedChar = [
-  "z",
-  "y",
-  "x",
-  "w",
-  "v",
-  "u",
-  "t",
-  "s",
-  "r",
-  "q",
-  "p",
-  "o",
-  "n",
-  "m",
-  "l",
-  "k",
-  "j",
-  "i",
-  "h",
-  "g",
-  "f",
-  "e",
-  "d",
-  "c",
-  "b",
-  "a",
-];
-
 function mapWordWeights(words: string[], weights: number[]): string {
-  const result = new Array(words.length);
-  for (let i = 0; i < words.length; ++i) {
-    let accumulate = 0;
-    for (const char of words[i]) {
-      accumulate += weights[char.charCodeAt(0) - 97];
+  const len = words.length;
+  const ans = new Uint8Array(len);
+  const codeA = 97;
+  const codeZ = 122;
+
+  for (let i = 0; i < len; i++) {
+    const word = words[i];
+    let s = 0;
+
+    for (let j = 0; j < word.length; j++) {
+      s += weights[word.charCodeAt(j) - codeA];
     }
-    result[i] = indexedReversedChar[accumulate % 26];
+
+    ans[i] = codeZ - (s % 26);
   }
-  return result.join("");
+
+  return String.fromCharCode(...ans);
 }
 
 console.log(
